@@ -46,7 +46,7 @@ Now that you have Django installed, you can now run the Django scripts on your l
 
 2. **Navigate to the Project Directory**: Change into the directory of the Django project:
    ```
-   cd PQdelsu
+   cd portfolio
    ```
 
 3. **Run the Development Server**: Start the Django development server by running the following command:
@@ -55,7 +55,8 @@ Now that you have Django installed, you can now run the Django scripts on your l
    ```
 
 4. **Access the Local Development Server**: Once the server is running, open your web browser and navigate to `http://127.0.0.1:8000/` or `http://localhost:8000/` to view the Django project.
-5. **Access the admin dashboard**: Navigate to `http://127.0.0.1:8000/admin' to access your admin interface.
+   
+5. **Access the admin dashboard**: Navigate to `http://127.0.0.1:8000/admin` to access your admin interface.
    
    **Username**: admin
    **Password**: suprn0v4
