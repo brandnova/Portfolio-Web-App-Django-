@@ -1,0 +1,452 @@
+{% extends 'core/base.html' %}
+{% block content %}
+{% load static %}
+  <section class="header18 cid-ucBtTFDuSt mbr-fullscreen">
+
+    {% if hero.bg_video %}
+        <video autoplay loop muted playsinline>
+            <source src="{{ hero.bg_video.url }}" type="video/mp4">
+        </video>
+    {% elif hero.bg_img %}
+        <img class="herobg " src="{{ hero.bg_img.url }}" alt="">
+    {% else %}
+
+        <div class="card">
+            <div class="card-body text-center">
+                <p>
+                    Your app does not have a background media.
+                </p>
+            </div>
+        </div>
+    {% endif %}
+
+
+
+    <div class="mbr-overlay" style="opacity: 0.5; background-color: rgb(0, 0, 0);"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="content-wrap col-12 col-md-12">
+                <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1">
+                    <strong>{{ hero.hero_title }}</strong>
+                </h1>
+                <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7">{{ hero.hero_content }}</p>
+                <div class="mbr-section-btn">
+                    <a class="btn btn-white-outline display-7" href="{{ hero.button_url }}">{{ hero.button_title }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  
+  <section data-bs-version="5.1" class="article12 cid-ucBtTFDrx5" id="about-me-12-ucBtTFDrx5">    
+      
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-12 col-lg-10">
+                  <h3 class="mbr-section-title mbr-fonts-style mb-4 mt-0 display-2">
+                  <strong>{{ about.about_title }}</strong>
+                  </h3>
+                  
+                  <p class="mbr-text mbr-fonts-style display-7">{{ about.about_content | safe }}</p>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="features023 cid-ucBtTFDklI" id="metrics-1-ucBtTFDklI">
+  
+      
+  
+      
+      
+      <div class="container">
+          
+          <div class="row content-row justify-content-center">
+
+            {% for lst in about.ab_list.all %}
+              <div class="item features-without-image col-12 col-md-6 col-lg-4 item-mb">
+                  <div class="item-wrapper">
+                      <div class="title mb-2 mb-md-3">
+                          <span class="num mbr-fonts-style display-1">
+                              <strong>{{ lst.value }}</strong></span>
+                      </div>
+                      <h4 class="card-title mbr-fonts-style display-5">
+                          <strong> {{ lst.title }} </strong>
+                      </h4>
+                      
+                  </div>
+              </div>
+            {% endfor %}  
+             
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="article01 cid-ucBtTFDZDa" id="generic-text-1-ucBtTFDZDa">
+      
+  
+      
+      
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="card col-md-12 col-lg-12">
+                  <div class="card-wrapper container">
+                    
+                      <div class="row m-3">
+                        {% for img in about.ab_img.all %}
+                          <div class="image-wrapper col-12 col-sm-6 justify-content-center">
+                              <img src="{{ img.img.url }}" alt="img">
+                          </div>
+                        {% endfor %}
+                      </div>
+  
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="slider4 mbr-embla cid-ucBtTFDcJ5" id="gallery-5-ucBtTFDcJ5">
+    
+    
+    <div class="container-fluid">
+      <div class="row mb-5 justify-content-center">
+        <div class="col-12 content-head">
+          <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+            <strong>My Works Showcase</strong>
+          </h3>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="embla position-relative" data-skip-snaps="true" data-align="center" data-contain-scroll="trimSnaps" data-loop="true" data-auto-play="true" data-auto-play-interval="2" data-draggable="true">
+            <div class="embla__viewport">
+              <div class="embla__container">
+                {% for gallery in gallery %}
+                <div class="embla__slide slider-image item" style="margin-left: 1rem; margin-right: 1rem;">
+                  <div class="slide-content">
+                    <div class="item-img">
+                      <div class="item-wrapper">
+                        <img src="{{ gallery.img.url }}" alt="img" title="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+                
+              </div>
+            </div>
+            <button class="embla__button embla__button--prev">
+              <span class="mobi-mbri mobi-mbri-arrow-prev" aria-hidden="true"></span>
+              <span class="sr-only visually-hidden visually-hidden">Previous</span>
+            </button>
+            <button class="embla__button embla__button--next">
+              <span class="mobi-mbri mobi-mbri-arrow-next" aria-hidden="true"></span>
+              <span class="sr-only visually-hidden visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="list05 cid-ucBtTFEJJj" id="faq-3-ucBtTFEJJj">
+      <div class="container">
+          <div class="col-12 mb-5 content-head">
+              <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                  <strong>Curious Minds Want to Know</strong>
+              </h3>
+          </div>
+          <div class="row justify-content-center ">
+              <div class="col-12 col-lg-8">
+                {% for faq in faq %}
+                  <div class="item features-without-image col-12 active">
+                      <div class="item-wrapper">
+                          <h5 class="mbr-card-title mbr-fonts-style mt-0 mb-3 display-5">
+                              <strong>{{ faq.question }}</strong></h5>
+                          <p class="mbr-text mbr-fonts-style mt-0 mb-3 display-7">{{ faq.ans }}</p>
+                      </div>
+                  </div>
+                {% endfor %}
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="image02 cid-ucBtTFEaKI mbr-fullscreen mbr-parallax-background" id="image-13-ucBtTFEaKI">
+      
+    <div class=" container text-center">
+        <div class="row text-center">
+            <h1 class="mbr-section-title mbr-fonts-style mb-4 display-1">
+                <strong>{{ cta.cta_title }}</strong>
+            </h1>
+            <p class="mbr-fonts-style mbr-text mb-4 display-7">{{ cta.cta_content }}</p>
+            <div class="mbr-section-btn">
+                <a class="btn btn-secondary display-7" href="{{ cta.cta_btn_url }}">{{ cta.cta_btn_title }}</a>
+            </div>
+        </div>
+    </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="features03 cid-ucBtTFFzWx" id="news-1-ucBtTFFzWx">
+    
+    
+    <div class="container-fluid">
+      <div class="row justify-content-center mb-5">
+        <div class="col-12 content-head">
+          <div class="mbr-section-head">
+            <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+              <strong>Latest Updates</strong>
+            </h4>
+            
+          </div>
+        </div>
+      </div>
+    
+      <div class="row">
+
+        {% for blog in blog %}
+            <div class="item features-image col-12 col-md-6 col-lg-3 active">
+            <div class="item-wrapper">
+                <div class="item-img mb-3">
+                <img src="{{ blog.img.url }}" alt="img" title="">
+                </div>
+                <div class="item-content align-left">
+                <h5 class="item-title mbr-fonts-style mt-0 mb-2 display-5">
+                    <strong>{{ blog.title }}</strong>
+                </h5>
+                <p class="mbr-text mbr-fonts-style mb-3 display-7"><i>{{ blog.posted_at }}</i></p>
+                <p class="mbr-text mbr-fonts-style mb-3 display-7">{{ blog.highlight }}</p>
+                <div class="mbr-section-btn item-footer">
+                    
+                </div>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="people04 cid-ucBtTFFhgT" id="testimonials-4-ucBtTFFhgT">
+      
+      
+      <div class="container">
+          <div class="row mb-5 justify-content-center">
+              <div class="col-12 mb-0 content-head">
+                  <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                      <strong>Rave</strong>
+                  </h3>
+                  
+              </div>
+          </div>
+          <div class="row mbr-masonry" data-masonry="{&quot;percentPosition&quot;: true }">
+            {% for rev in revs %}
+              <div class="item features-without-image col-12 col-md-6 col-lg-4 active">
+                  <div class="item-wrapper">
+                      <div class="card-box align-left">
+                          <p class="card-text mbr-fonts-style display-7">{{ rev.comment }}</p>
+                          <div class="img-wrapper mt-4 mb-3">
+                            {% if rev.img %}
+                              <img src="{{ rev.img.url }}" data-slide-to="0" data-bs-slide-to="0" alt="">
+                            {% else %}
+                              <img src="{% static 'assets/images/download.PNG' %}" data-slide-to="0" data-bs-slide-to="0" alt="">
+                            {% endif %}
+                          </div>
+                          <h5 class="card-title mbr-fonts-style display-7">
+                              <strong>{{ rev.name }}</strong>
+                          </h5>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
+              
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="social4 cid-ucBtTFGfAX" id="follow-us-1-ucBtTFGfAX">
+      
+      
+      
+  
+      <div class="container">
+          <div class="media-container-row">
+              <div class="col-12">
+                  <h3 class="mbr-section-title align-center mb-5 mbr-fonts-style display-2">
+                      <strong>Connect with Me</strong>
+                  </h3>
+                  <div class="social-list align-center">
+                    {% for s in scocials %}
+                      <a class="iconfont-wrapper bg-tiktok m-2 " target="_blank" href="{{ s.link }}">
+                          <i class="{{ s.icon_class }} socicon"></i>
+                      </a>
+                    {% endfor %}
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="clients04 cid-ucBtTFGw5Z" id="sponsors-1-ucBtTFGw5Z">
+      
+      
+      <div class="container-fluid">
+          <div class="row justify-content-center mb-5">
+              <div class="col-12 content-head">
+                  <div class="mbr-section-head">
+                      <h4 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                          <strong>Meet Our Supporters</strong>
+                      </h4>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            {% for support in support %}
+              <div class="item features-image col-12 col-md-6 col-sm-6 col-lg-2 active">
+                  <div class="item-wrapper">
+                      <div class="">
+                          <img src="{{ support.img.url }}" alt="img" title="" data-slide-to="1" data-bs-slide-to="1">
+                      </div>
+                      
+                  </div>
+              </div>
+            {% endfor %}
+              
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="form5 cid-ucBtTFGbpH" id="contact-form-3-ucBtTFGbpH">
+      
+      
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-12 content-head">
+                  <div class="mbr-section-head mb-5">
+                      <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                          <strong>Get in Touch</strong>
+                      </h3>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="row justify-content-center">
+              <div class="col-lg-8 mx-auto mbr-form" data-form-type="formoid">
+                  <form action="." method="POST" class="mbr-form form-with-styler" data-form-title="Form Name">
+                    {% csrf_token %}
+                    
+                        <div class="row">
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert col-12 {% if message.tags %}alert-{{ message.tags }}{% endif %}" data-form-alert{% if message.tags == 'danger' %}-danger{% endif %}>
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                {% if form.errors %}
+                                    <div data-form-alert-danger class="alert alert-danger col-12">
+                                        <p>Oops...! Some problem!</p>
+                                        <ul>
+                                            {% for field, errors in form.errors.items %}
+                                                {% for error in errors %}
+                                                    <li>{{ error }}</li>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+                        </div>
+
+                        <div class="dragArea row">
+                          <div class="col-md col-sm-12 form-group mb-3" data-for="name">
+                            {{ form.name }}
+                            {% if form.name.errors %}
+                                <div class="error">
+                                    {{ form.name.errors }}
+                                </div>
+                            {% endif %}
+                          </div>
+                          <div class="col-md col-sm-12 form-group mb-3" data-for="email">
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                                <div class="error">
+                                    {{ form.email.errors }}
+                                </div>
+                            {% endif %}
+                          </div>
+                          <div class="col-12 form-group mb-3 mb-3" data-for="url">
+                            {{ form.phone }}
+                            {% if form.phone.errors %}
+                                <div class="error">
+                                    {{ form.phone.errors }}
+                                </div>
+                            {% endif %}
+                          </div>
+                          <div class="col-12 form-group mb-3" data-for="textarea">
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                                <div class="error">
+                                    {{ form.message.errors }}
+                                </div>
+                            {% endif %}
+                          </div>
+
+                          <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn">
+                              <button type="submit" class="btn btn-primary display-7">Send Message</button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <section data-bs-version="5.1" class="contacts02 map1 cid-ucBtTFGpgN" id="contacts-2-ucBtTFGpgN">
+  
+      
+  
+      
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-12 content-head">
+                  <div class="mbr-section-head mb-5">
+                      <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+                          <strong>Contact Us</strong>
+                      </h3>
+                      
+                  </div>
+              </div>
+          </div>
+          <div class="row justify-content-center">
+              <div class="card col-12 col-md-12 col-lg-6">
+                  <div class="card-wrapper">
+                      <div class="text-wrapper">
+                          
+                          <ul class="list mbr-fonts-style display-7">
+                            {% for con in contact %}
+                              <li class="mbr-text item-wrap">
+                              {{ con.name }}:                                
+                              <a href="#" class="text-black">{{ con.value }}</a></li>
+                            {% endfor %}
+                              
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="map-wrapper col-md-12 col-lg-6">
+                  <div class="google-map"><iframe frameborder="0" style="border:0" src="{{ map.iFrame_link }}" allowfullscreen=""></iframe>
+                </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  {% endblock %}
