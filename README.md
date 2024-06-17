@@ -1,7 +1,7 @@
 # Portfolio Webapp
 A personal portfolio webapp with lots of customization features in the admin interface.
 
-# Django Installation and Setup Guide
+# Django Installation and Setup Guide (Offline)
 
 This guide will walk you through the process of installing and running this scripts on your local PC.
 
